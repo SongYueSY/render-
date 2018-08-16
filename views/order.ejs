@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<body>
+    订单列表
+    <hr>
+    <!-- =把变量值直接输出，不会解析HTML标签 -->
+    <%= content %>
+    <hr>
+    <!-- -会解析HTML标签 -->
+    <%- content %>
+    <hr>
+    姓名：<%=person.name%><br>
+    年龄：<%=person.age%><br>
+    性别：<%=person.sex?"男":"女"%><br>
+    性别：
+    <!-- 判断语句注意事项：1.不能有等号。2.注意闭合{} -->
+    <% if(person.sex) { %> 
+        <span style="color: red;">男</span>
+        <span>其他的文本</span>
+    <% } else { %>
+        女
+    <% } %>
+    <br>
+    爱好：
+    <!-- 循环语句 -->
+    <% for(var i = 0;i < person.fav.length; i++) {%>
+        <%=person.fav[i]%>,
+    <% } %>
+    <br>
+</body>
+</html>
